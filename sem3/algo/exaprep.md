@@ -45,7 +45,44 @@
 - Bipartite check
 
     We will have an array of colors, and an array of visited, so we can check if a vertex is visited and what color it has. We will start with a vertex, and color it with one color, then we will run DFS on all of its neighbors, and color them with the other color, and so on. If we find a vertex that has already been visited, and it has the same color as the current one, then we have found an odd cycle, and the graph is not bipartite.
+
+## Topological sort
+
+- With stack.
+
+    We will run DFS on the graph, and when we exit from the recursive call, we will insert the vertex in a stack. Then, we will print the stack.  
+    It works for the same reason as the algorithm for SCC, because whenever we push a vertex to the stack, all of its neighbors have already been visited, 
+    so in reverse order, it will appear before any neighbor.  
+    This is the same as keeping track of departure time and printing all vertices in
+    decreasing order of departure time.  
+
+    - Proof of correctness.
     
+        let $f(x)$ be the position of a vertex $x$ in the topological order.
+        We will prove that $\forall{(x, y) \in E}, f(x) > f(y)$ if and only if $d(x) > d(y)$, where $d(x)$ is departure (exit) time.  
+        If $d(x) > d(y)$, then $f(x) > f(y)$ because of parentheses theorem ($x$ has a greater exit time, then it is an ancestor of $y$ and the theorem states that the discovery time of descendants is always greater).  
+        If $f(x) > f(y)$, There is a path from $x$ to $y$ (because of the definition of topological sorting), then we should have exited from $y$ before $x$ then $d(x) > d(y) $.
+
+
+
+
+- With queue.
+
+    We will keep track of the indegree of every vertex, and we will insert in a queue all the vertices with indegree 0. Then, we will take the first vertex in the queue, and for every neighbor of that vertex, we will decrease its indegree by 1, and if the indegree of that neighbor becomes 0, we will insert it in the queue. We will repeat this process until the queue is empty.
+
+- Example tasks
+
+    1. Scheduling depending jobs (like order of compilation).  
+    2. Coloring of a graph.  
+    3. Finding longest path in a DAG (find a toposort, and then run over it, and for every non-assigned vertex, assign a distance of $0$, and for all of its neighbors, assign $max(d[u], d[v] + 1)$).
+    4. Finding the number of paths from $s$ to $t$ in a DAG.
+    5. Finding the number of paths from $s$ to $t$ in a DAG with weights.  
+    6. Finding the minimum path from $s$ to $t$ in a DAG with weights.
+
+
+## Advanced DFS
+
+
 
 ## Algoritmo Hungariano
 
