@@ -273,26 +273,58 @@ BFS proof of work
 
 - ## 4.3 Kruskal's algorithm
 
-    
+    We maintain a DSU of vertices, then sort the list of edges by weight and take each edge one by one, if the pair of vertices that the corresponding edge already belong to the same set, do nothing, otherwise, join them in the DSU and add the corresponding edge to the answer tree untill all vertices belong to the same set.
 
     !Add proof of correctness and running time  
     [Back to Table of Contents](#table-of-contents)
 
-## Algoritmo Hungariano
+# 5 Games on graphs
 
-<details>
-    <summary>Descripción del problema</summary>
+- ## 5.1 
+
+# 6 Matchings
+
+- ## 6.1 
+
+# 7 Flows
+
+- ## 7.1 Ford-Fulkerson's algorithm
+
+    In the graph, the weight of an edge represent the current capacity of the corresponding edge.  
+    For every edge in the graph we will add its transpose edge, which will have a weight equal to the current flow through that edge.  
+    Then, We will find any augmenting path from source to sink (i. e. a path whose minimum capacity is positive) and send a flow to that path (consequently reducing the capacity of all edges along the path and increasing the flow on the transpose edges).  
+    When no augmenting path could be found, we have found the maximum flow on that graph.
+
+    !Add proof of correctness and running time  
+    [Back to Table of Contents](#table-of-contents)
+
+- ## 7.2 Edmon-Karp algorithm
+
+    This algorithm finds augmenting paths of the minimum distance using a BFS every time, the distance of the paths is constrained by $V$, if no path could be found on the BFS, then we have found the maximum flow.
+
+    !Add proof of correctness and running time  
+    [Back to Table of Contents](#table-of-contents)
+
+- ## 7.3 Dinic's algorithm
+
+    Since Edmon-Karp finds always the shortest paths, Dinic proposed to build a graph of only minimal paths from source to sink and run Ford-Fulkerson's algorithm.
+
+    !Add proof of correctness and running time  
+    [Back to Table of Contents](#table-of-contents)
+
+- # Algoritmo Hungariano
+
+- Descripción del problema
 
     Hay un conjunto de tareas, que las pueden ejecutar todos los agentes disponibles (la misma cantidad de agentes que de tareas, osea una matriz cuadrada), pero cada uno cobra un precio distinto por cada tarea, distribuir las tareas tal que cada agente tenga una sola tarea, y el precio total sea el menor posible.
-</details>
     
-<details>
-    <summary>Algoritmo</summary>
+- Algoritmo
 
     1. A cada fila de la matriz le restamos el menor elemento en ella
     2. A cada columna le restamos el menor elemento en ella
     3. Cubrimos con el mínimo número posible de líneas, las filas y columnas que contienen un cero (Osea, si conviene más cubrir con una línea horizontal o vertical para cada celda no cubierta)
     4. Si el número de líneas que se usaron es n, entonces solo hace falta repartir cada tarea (Osea, darsela a un agente, solo si en esa celda hay un cero, y repartirlas tal que a cada agente le toque una tarea)
     5. Si el número de líneas que se usaron no es n, buscar el menor valor que no está cubierto por una línea y restárselo a todas las filas **des**cubiertas, y sumarlo a todas las filas cubiertas y repetir desde el paso 3.
-</details>
  
+!Add proof of correctness and running time  
+    [Back to Table of Contents](#table-of-contents)
