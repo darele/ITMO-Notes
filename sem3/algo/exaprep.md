@@ -23,18 +23,10 @@
     ```
     I. e. we recursively check all possible paths, but never go through the same portion of a path more than once.
 
-- Finding SCC
+- Finding Connected Components
 
-    1. After the recursive call of DFS, let's insert in a stack the corresponding vertex, then we will have a stack with the vertices in the order of their exit from the recursive call.  
-
-
-    ![Example graph with two SCCs](SCC.png)
-
-    In the above graph, the final queue looks like: $0,1, 2, 4, 3, 0$  
+    Just run an usual DFS, all vertices marked as visited, belong to a single connected component, then for all non-visited vertices, repeat the algorithm untill all vertices had been visited.
     
-    2. Now we will run DFS on the transposed graph, taking vertices from stack one by one, and we will go to the next vertex in the stack after the recursive call (if it has been visited, do nothing). We will also keep track of the number of vertices in the current component. If we reach a vertex that has already been visited, we will start a new component.  
-
-    Why does it work? Basically, because we add the vertex to the stack only when it has already gone recursively to all of its neighbors, we guarantee that a vertex that connects a component to another one, will be added to the stack after all the vertices of the component that it connects to, then, since we are taking the vertices according to the stack, we can guarantee that if a vertex connects to another component in this transposed graph, that component will be visited before the current one.
 
 - Cycle finding
 
@@ -95,6 +87,18 @@
 
     A vertex $v$ is the end of the bridge $(u,v), if $min(min[v], min[u]) >= max(d[u], d[v])$
     
+- ## 2.3 Korasaju's algorithm
+
+    1. After the recursive call of DFS, let's insert in a stack the corresponding vertex, then we will have a stack with the vertices in the order of their exit from the recursive call.  
+
+
+    ![Example graph with two SCCs](SCC.png)
+
+    In the above graph, the final queue looks like: $0,1, 2, 4, 3, 0$  
+    
+    2. Now we will run DFS on the transposed graph, taking vertices from stack one by one, and we will go to the next vertex in the stack after the recursive call (if it has been visited, do nothing). We will also keep track of the number of vertices in the current component. If we reach a vertex that has already been visited, we will start a new component.  
+
+    Why does it work? Basically, because we add the vertex to the stack only when it has already gone recursively to all of its neighbors, we guarantee that a vertex that connects a component to another one, will be added to the stack after all the vertices of the component that it connects to, then, since we are taking the vertices according to the stack, we can guarantee that if a vertex connects to another component in this transposed graph, that component will be visited before the current one.
 
 ## Algoritmo Hungariano
 
