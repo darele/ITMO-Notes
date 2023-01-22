@@ -3,9 +3,14 @@
 # Table of Contents
 1. [1. DFS](#depth-first-search) 
 2. &emsp;[1.1 DFS](#11-dfs)
-2. &emsp;[1.2 Topological Sort](#12-topological-sort)
-3. [2. Advanced DFS](#advanced-dfs)
-4. &emsp;[2.1 Finding Bridges and Articulation Points](#21-finding-bridges-and-articulation-points)
+3. &emsp;[1.2 Topological Sort](#12-topological-sort)
+4. [2. Advanced DFS](#advanced-dfs)
+5. &emsp;[2.1 Finding Bridges and Articulation Points](#21-finding-bridges-and-articulation-points)
+6. &emsp;[2.3 Korasaju's Algorithm](#23-korasajus-algorithm)
+7. &emsp;[2.4 Counter-Examples of Korasaju's Algorithm](#24-counter-examples-to-korasajus-algorithm)
+6. [3. BFS](#3-breadth-first-search)
+7. &emsp;[3.1 Base Algorithm](#31-base-algorithm-bfs-proof-of-correctness)
+
 3. [Hungarian Algorithm](#algoritmo-hungariano)
 
 # Depth-First Search
@@ -120,12 +125,54 @@
 
 - ## 2.6 Eulerian graph's criteria and algorithm for finding euler cycle.
 
-    - Criterium for Eulerian property.
+    - Criterium for Eulerian graphs.
 
-        
+        - An undirected graph has an Eulerian cycle if and only if every vertex has even degree, and all of its vertices with nonzero degree belong to a single connected component.
+
+        - An undirected graph has an Eulerian trail if and only if exactly zero or two vertices have odd degree, and all of its vertices with nonzero degree belong to a single connected component
+
+        - A directed graph has an Eulerian cycle if and only if every vertex has equal in degree and out degree, and all of its vertices with nonzero degree belong to a single strongly connected component.
+
+        - A directed graph has an Eulerian trail if and only if at most one vertex has (out-degree) − (in-degree) = 1, at most one vertex has (in-degree) − (out-degree) = 1, every other vertex has equal in-degree and out-degree, and all of its vertices with nonzero degree belong to a single connected component of the underlying undirected graph.  
+
+        All of this criteria can be proved by contradiction (let's assume that some edge is not included in the cycle, then we note that we cannot form a cycle, since the parity of the degree of the two ends of the given edge has been changed).
+
+    - Finding Eulerian Path in $\mathcal{O}(n)$
+
+        ```
+            procedure FindEulerPath(V)
+            1. iterate through all the edges outgoing from vertex V;
+                remove this edge from the graph,
+                and call FindEulerPath from the second end of this edge;
+            2. add vertex V to the answer.
+        ```
+
+        An equivalent algorithm is
+
+        ```
+            stack St;
+            put start vertex in St;
+            until St is empty
+                let V be the value at the top of St;
+                if degree(V) = 0, then
+                    add V to the answer;
+                    remove V from the top of St;
+                otherwise
+                    find any edge coming out of V;
+                    remove it from the graph;
+                    put the second end of this edge in St;
+        ```
+
+        But this one works faster.
+
+        !Add proof of correctness.
 
     [Back to Table of Contents](#table-of-contents)
 
+
+# 3 Breadth-first Search
+
+## 3.1 Base algorithm BFS, proof of correctness.
 
 ## Algoritmo Hungariano
 
