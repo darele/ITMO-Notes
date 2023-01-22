@@ -255,6 +255,29 @@ BFS proof of work
     !Add proof of correctness  
     [Back to Table of Contents](#table-of-contents) 
 
+
+# 4 Minimum Spanning Tree
+
+- ## 4.1 Lemma of secured edge
+
+    !Add lemma and proof
+
+    [Back to Table of Contents](#table-of-contents)
+
+- ## 4.2 Prim's algorithm
+
+    We start from any vertex, and add the all of its edges to a priority_queue, so that then we could extract this edges and if the other end of the edge has not already been seen, we add all of the edges of the neighbor to the heap, we repeat it untill the queue has been completely empty.
+
+    !Add proof of correctness and running time  
+    [Back to Table of Contents](#table-of-contents)
+
+- ## 4.3 Kruskal's algorithm
+
+    
+
+    !Add proof of correctness and running time  
+    [Back to Table of Contents](#table-of-contents)
+
 ## Algoritmo Hungariano
 
 <details>
