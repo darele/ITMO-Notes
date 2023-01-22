@@ -1,10 +1,16 @@
 # Repaso para Examen de algo
 
 # Table of Contents
-1. [DFS](#dfs)
-2. [Hungarian Algorithm](#algoritmo-hungariano)
+1. [1. DFS](#depth-first-search) 
+2. &emsp;[1.1 DFS](#11-dfs)
+2. &emsp;[1.2 Topological Sort](#12-topological-sort)
+3. [2. Advanced DFS](#advanced-dfs)
+4. &emsp;[2.1 Finding Bridges and Articulation Points](#21-finding-bridges-and-articulation-points)
+3. [Hungarian Algorithm](#algoritmo-hungariano)
 
-## DFS
+# Depth-First Search
+
+## 1.1 DFS
 
 - Base Algorithm
 
@@ -46,7 +52,7 @@
 
     We will have an array of colors, and an array of visited, so we can check if a vertex is visited and what color it has. We will start with a vertex, and color it with one color, then we will run DFS on all of its neighbors, and color them with the other color, and so on. If we find a vertex that has already been visited, and it has the same color as the current one, then we have found an odd cycle, and the graph is not bipartite.
 
-## Topological sort
+## 1.2 Topological sort
 
 - With stack.
 
@@ -79,10 +85,16 @@
     5. Finding the number of paths from $s$ to $t$ in a DAG with weights.  
     6. Finding the minimum path from $s$ to $t$ in a DAG with weights.
 
+# Advanced DFS
 
-## Advanced DFS
+- ## 2.1 Finding Bridges and Articulation points
 
+    Save for every vertex its discovery time $d[v]$, and its lowest discovery time of any of its neighbors. it is, when visiting a vertex $v$, if one of its neighbors $u$ has already been visited, we will update $min[v] = min(d[u], min[v])$.
+    
+    A vertex is an articulation point, if $min[v] >= d[u]$, i.e. from its descendants in the dfs tree, there is not a back edge (since the minimum discovery time that could be found corresponds at least to the studied point).
 
+    A vertex $v$ is the end of the bridge $(u,v), if $min(min[v], min[u]) >= max(d[u], d[v])$
+    
 
 ## Algoritmo Hungariano
 
