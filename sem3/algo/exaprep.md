@@ -1,15 +1,25 @@
 # Repaso para Examen de algo
 
+Things to study
+
+Euler path
+
+Korasaju
+
+BFS proof of work
+
 # Table of Contents
 1. [1. DFS](#depth-first-search) 
 2. &emsp;[1.1 DFS](#11-dfs)
 3. &emsp;[1.2 Topological Sort](#12-topological-sort)
 4. [2. Advanced DFS](#advanced-dfs)
 5. &emsp;[2.1 Finding Bridges and Articulation Points](#21-finding-bridges-and-articulation-points)
-6. &emsp;[2.3 Korasaju's Algorithm](#23-korasajus-algorithm)
-7. &emsp;[2.4 Counter-Examples of Korasaju's Algorithm](#24-counter-examples-to-korasajus-algorithm)
-6. [3. BFS](#3-breadth-first-search)
-7. &emsp;[3.1 Base Algorithm](#31-base-algorithm-bfs-proof-of-correctness)
+6. &emsp;[2.3 Korasaju's Algorithm !](#23-korasajus-algorithm)
+7. &emsp;[2.4 Counter-Examples of Korasaju's Algorithm !](#24-counter-examples-to-korasajus-algorithm)
+7. &emsp;[2.6 Eulerian graphs !](#26-eulerian-graphs-criteria-and-algorithm-for-finding-euler-cycle)
+8. [3. BFS](#3-breadth-first-search)
+9. &emsp;[3.1 Base Algorithm !](#31-base-algorithm-bfs-proof-of-correctness)
+10. &emsp;[3.2 (0-k) BFS](#32-0-1-bfs-0-k-bfs)
 
 3. [Hungarian Algorithm](#algoritmo-hungariano)
 
@@ -25,6 +35,11 @@
             for (u in g[v]):
                 if (!vis[u]):
                     dfs(u);
+
+        call_dfs():
+            for (i = 1 .. n):
+                if (!vis[i]):
+                    dfs(i)
     ```
     I. e. we recursively check all possible paths, but never go through the same portion of a path more than once.
 
@@ -86,7 +101,7 @@
 
     [Back to Table of Contents](#table-of-contents)
 
-# Advanced DFS
+# 2. Advanced DFS
 
 - ## 2.1 Finding Bridges and Articulation points
 
@@ -172,7 +187,73 @@
 
 # 3 Breadth-first Search
 
-## 3.1 Base algorithm BFS, proof of correctness.
+- ## 3.1 Base algorithm BFS, proof of correctness.
+
+    ```
+        bfs(int s):
+            queue q
+            dist.assign(n, -1)
+            q.push(s)
+            dist[s] = 0
+            while (!q.empty):
+                v = q.front
+                q.pop
+                for u in g[v]:
+                    if dist[u] == -1:
+                        q.push(u)
+                        dist[u] = dist[v] + 1
+    ```
+
+    !Agregar prueba de por que funciona
+
+    [Back to Table of Contents](#table-of-contents)
+
+- ## 3.2 (0-1)-BFS, (0-k)-BFS
+
+    - ### (0-1) BFS
+
+        If all edges in the graph have weights either 0 or 1, then in every iteration, every vertex is at a distance of either $0$ or $1$ respect to the vertex that has been extracted from the queue.
+
+        Let's save in a deque the new coming vertices.
+        When doing BFS, if the edge has weight of 1, we push it to the end of the queue, otherwise to the beginning, but we get elements only from the beginning of the queue, as the smallest distances are there, the minimum distance to every vertex is computed as usual.
+
+    - ## (0-k) BFS (Dial's algorithm)
+
+        The idea is similar, but since every edge has weight $\leq k$, we create $k+1$ buckets (arrays, stacks, queues, etc.), in which every vertex that is at a distance $0 \cdots k$ accordingly will be stored.  
+        Then we will empty the buckets in increasing order.
+
+    [Back to Table of Contents](#table-of-contents)
+
+- ## 3.3 Djikstra's Algorithm
+
+    Let's create a min priority queue, in which we will insert the edges such that they were sorted by edge weight, this is necessary when the weights of the edges are not constrained, or the constrain is too big. The idea is the same as the 0-k BFS.
+
+    !Add proof of correctness  
+    [Back to Table of Contents](#table-of-contents)
+
+- ## 3.4 Bellman-Ford's Algorithm
+
+    We initialize all vertices to have a distance of inf except the source vertex, which will be initialized to $0$, we will relaxate this distances on every iteration ($n$ in total).  
+    For each iteration, we will run over the list of edges, and if using the edge $e$ the distance to one of the ends of this edge can be reduce, let's reduce it, otherwise, just ignore it.
+
+    Therefore, we can find the shorest paths of $k$ edges using only k iterations of this algorithm
+
+    !Add proof of correctness  
+    [Back to Table of Contents](#table-of-contents)
+
+- ## 3.5 Floyd-Warshall's Algorithm
+
+    We set a matrix of adjacency to infinite in all cells, except the diagonals where we will initialize to $0$.  
+    Then we will initialize all cells that correspond to the edges in the graph to their actual value.
+
+    For each of the $n$ vertices, we will take such a vertex as a pivot, i. e., for an edge $(v, u)$, if by going from $v$ to $k$, and then from $k$ to $u$ the total distance from $v$ to $u$ can be reduces, we will update the corresponding cell in the matrix of adjacency.
+
+    ### Negative cycle detection
+
+    We set the distances of all nodes to themselves to be 0, therefore, if after the execution of the algorithm the distance from a node to itself can be reduced, then a negative cycle can be found
+
+    !Add proof of correctness  
+    [Back to Table of Contents](#table-of-contents) 
 
 ## Algoritmo Hungariano
 
