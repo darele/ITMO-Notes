@@ -20,7 +20,10 @@ BFS proof of work
 8. [3. BFS](#3-breadth-first-search)
 9. &emsp;[3.1 Base Algorithm !](#31-base-algorithm-bfs-proof-of-correctness)
 10. &emsp;[3.2 (0-k) BFS](#32-0-1-bfs-0-k-bfs)
-
+11. &emsp;[3.3 Djikstra's algorithm](#33-djikstras-algorithm)
+12. &emsp;[3.4 Bellman Ford](#34-bellman-fords-algorithm)
+13. &emsp;[3.5 Floyd-Warshall](#35-floyd-warshalls-algorithm)
+14. &emsp;[3.6 Negative cycle finding]()
 3. [Hungarian Algorithm](#algoritmo-hungariano)
 
 # Depth-First Search
@@ -255,12 +258,26 @@ BFS proof of work
     !Add proof of correctness  
     [Back to Table of Contents](#table-of-contents) 
 
+- ## 3.6 Negative cycle detection
+
+    ### Using Bellman-Ford algorithm
+
+    For every vertex let's save its parent, i. e. that vertex from which the distance to the current vertex could be relaxated, then let's let's backtrack using this array, untill we found an already visited vertex.
+
+    [Back to Table of Contents](#table-of-contents) 
 
 # 4 Minimum Spanning Tree
 
-- ## 4.1 Lemma of secured edge
+- ## 4.1 Lemma of safe edge
 
-    !Add lemma and proof
+    Let $A$ and $B$ be two disjoint sets of vertices, and let a set of edges join both of these sets, then the minimum of these edges will be in some minimum spanning tree
+
+    - **Corollary**: if more than one edge has the minimum weight, then theres is more than one MST exists. And if only one edge with the minimum weight exists, then the MST is unique
+
+    ### Proof
+
+    Let $u$ and $v$ be the minimum edge joining sets $A$ and $B$ and let $x$ and $y$ be the ends of some other edge joining $A$ and $B$.  
+    Let's try to build a MST that includes edge $xy$ but does not include edge $uv$, then let's take the same portion of the MST in components $A$ and $B$ that does not include edge $xy$ but includes edge $uv$, by definition $w(uv) < w(x, y)$, hence, we have built a MST that has less weight than the last one, which is contradiction.
 
     [Back to Table of Contents](#table-of-contents)
 
