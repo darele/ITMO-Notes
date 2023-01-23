@@ -23,7 +23,7 @@ BFS proof of work
 11. &emsp;[3.3 Djikstra's algorithm](#33-djikstras-algorithm)
 12. &emsp;[3.4 Bellman Ford](#34-bellman-fords-algorithm)
 13. &emsp;[3.5 Floyd-Warshall](#35-floyd-warshalls-algorithm)
-14. &emsp;[3.6 Negative cycle finding]()
+14. &emsp;[3.6 Negative cycle finding](#36-negative-cycle-detection)
 3. [Hungarian Algorithm](#algoritmo-hungariano)
 
 # Depth-First Search
@@ -138,6 +138,16 @@ BFS proof of work
 
         The idea of Korasaju's algorithm when the stack has been created, is to run DFS and whenever a visited vertex is found (a gray vertex), start a new component, in which we will introduce all reachable vertices in that run of the DFS, since it is guaranteed that all vertices that are already black, do not belong to the component.  
         For this graph, if we apply the same strategy, we will insert the vertices in component 2 as part of component 1, which is not true.
+
+    - ### Using arrival time instead of departure time
+
+        Here any graph with more than one SCC can be drawn, let's take the graph in the last point for example, assuming we start first DFS in the left component, here the last vertex in the stack will be some vertex in the right component.  
+        Then when using the transpose graph, we will visit all vertices and in total we get only one component, which is not true.
+
+
+    - ### Sorting vertices in the opposite order
+
+        If we sort the vertices in opposite order we guarantee that the vertices that were visited first in the DFS will appear last in our stack, then, in the transpose we when taking the first vertex, we will run a DFS that visits all SCC (as all reachable components are marked white), they will be marked as one whole component which is not true.
 
     [Back to Table of Contents](#table-of-contents)
 
@@ -297,7 +307,34 @@ BFS proof of work
 
 # 5 Games on graphs
 
-- ## 5.1 
+- ## 5.2 Sum of games, Grundy function
+
+    Let graphs $A$ and $B$ be graphs in which both players can make moves (there is a piece that can be moved in both graphs). A first approach is to build a graph with $n^2$ vertices, in which all possible moves (either on the first graph or on the second are drawn).  
+    But we can study every graph independently, defining the winning state of the vertices, and consequently defining is a graph is a winning graph or losing graph.  
+    Then for every vertex we can define the Grundy function, which is $g(v) = MEX(g(u))$ for all $u$ - neighbors of $v$
+
+    Hence, for every graph, it is a losing graph if its $g[v] = 0$ for the starting vertex $v$, 
+
+    Then Grundy function for the game is defined as $G(A + B) = G(A) \oplus G(B)$
+
+    ### Proof
+
+    In an inductive way, we assume that for two games $A$ and $B$, we either made the next step in $A$, or in $B$, and the two Grundy functions for this games are $g(a') \oplus g(b)$ and $g(a) \oplus g(b')$ respectively.  
+    Then, we need to prove two observations:
+
+    1. $g(a) \oplus g(b)$ is not in either graph.
+    2. All $x < g(a) \oplus g(b)$ are in the set of values of Grundy for all vertices (the two we are looking at, but it can be generalized).
+
+    Let's prove both:
+
+    1. $g(a) \oplus g(b)$ is equal to $g(a') \oplus g(b)$ of $g(a) \oplus g(b')$ Without loss of generality, let's set: $g(a) \oplus g(b) = g(a') \oplus g(b)$, we do $\oplus g(b)$ on both sides, and we get $g(a)=g(a')$ wich is contradictory.
+
+    ![Alt text](img/Grundy%20proof.png)
+
+    2. We set $x < g(a) \oplus g(b)$, then, both of these numbers share prefix, but at some bit, $g(a)\oplus g(b) = 1$ and $x = 0$ (because of the less criterium), then, when doing the operation $x \oplus g(b)$ we get the same prefix as in $g(a)$ (since prefix of $g(a)\oplus g(b)$ is composed of $g(a)$ and $g(b)$), but in that specific bit, we get a $0$, which means that $x \oplus g(b) < g(a)$, and it means that in game $A$ we can move to a state $a'$, that has that value of Grundy function, therefor we get $g(a')\oplus g(b) = x$(see image)  
+    This basically shows that for every $x < g(a) \oplus g(b)$, we can find a move that leads to a grundy functions with that value. [insert square of proof]
+
+    [Back to Table of Contents](#table-of-contents)
 
 # 6 Matchings
 
