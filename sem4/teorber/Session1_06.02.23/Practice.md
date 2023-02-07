@@ -1,5 +1,25 @@
+# Practice 1
+
 # Table of Contents
-1. []()
+1. [Part I Classic Probability](#classic-probability)
+    - [1.1 Problem 1](#problem-1)
+    - [1.2 Problem 2](#problem-2)
+    - [1.3 Problem 3](#problem-3)
+    - [1.4 Problem 4](#problem-4)
+    - [1.5 Problem 5](#problem-5)
+    - [1.6 Problem 6](#problem-6)
+    - [1.7 Problem 7](#problem-7)
+    - [1.8 Problem 8](#problem-8)
+    - [1.9 Problem 9](#problem-9)
+    - [1.10 Problem 10](#problem-10)
+    - [1.2 Problem 6](#problem-6)
+2. [PartII Geometrical Probability](#geometrical-probability)
+    - [2.1 Problem 12](#problem-12)
+    - [2.2 Problem 13](#problem-13)
+3. [Homework](#homework)
+
+
+# Classic Probability
 
 ## Problem 1
 
@@ -301,6 +321,8 @@ On a chess board, a white and a black rook are placed, What is the probability t
     $$
     P(A) = \dfrac{5}{18}
     $$
+
+# Geometrical Probability
 
 ## Problem 12
 
