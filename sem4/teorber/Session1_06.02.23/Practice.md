@@ -33,15 +33,11 @@ There are 4 red pencils and 3 blue pencils in a box, whte is the probability of 
 
     Total cases:
 
-    $$
-    n = {7 \choose 4} = \dfrac{7!}{3!4!} = 35
-    $$
+    $$n = {7 \choose 4} = \dfrac{7!}{3!4!} = 35$$
 
     Probability:
 
-    $$
-    P(A)=\dfrac{18}{35}
-    $$
+    $$P(A)=\dfrac{18}{35}$$
 
 ## Problem 2
 
@@ -56,21 +52,15 @@ There are 2 white, 3 black and 4 red balls in a box, 5 are taken out, what's the
 
     Favorable cases:
 
-    $$
-    m = {3 \choose 2} {4 \choose 2} {2 \choose 1} = 6!\dfrac{4!}{2!2!} = 6\times6 = 36
-    $$
+    $$m = {3 \choose 2} {4 \choose 2} {2 \choose 1} = 6!\dfrac{4!}{2!2!} = 6\times6 = 36$$
 
     Total cases:
 
-    $$
-    n = {9 \choose 5} = \dfrac{9\times8\times7\times6}{4!} = 126
-    $$
+    $$n = {9 \choose 5} = \dfrac{9\times8\times7\times6}{4!} = 126$$
 
     Probability:
 
-    $$
-    P(A)=\dfrac{36}{126} = \dfrac{2}{7}
-    $$
+    $$P(A)=\dfrac{36}{126} = \dfrac{2}{7}$$
 
 
 ## Problem 3
@@ -81,21 +71,15 @@ There are 2 white, 3 black and 4 red balls in a box, 5 are taken out, what's the
 
     Favorable cases:
 
-    $$
-    m = {5 \choose 3} {3 \choose 1} {2 \choose 1} = \dfrac{5!}{3!2!}\dfrac{3!}{2!1!} \times 2 = 6\times6 = 60
-    $$
+    $$m = {5 \choose 3} {3 \choose 1} {2 \choose 1} = \dfrac{5!}{3!2!}\dfrac{3!}{2!1!} \times 2 = 6\times6 = 60$$
 
     Total cases:
 
-    $$
-    n = {10 \choose 5} = \dfrac{10!}{5!5!} = 63\times4=252
-    $$
+    $$n = {10 \choose 5} = \dfrac{10!}{5!5!} = 63\times4=252$$
 
     Probability:
 
-    $$
-    P(A)=\dfrac{60}{252} = \dfrac{5}{21}
-    $$
+    $$P(A)=\dfrac{60}{252} = \dfrac{5}{21}$$
 
     This is true only if all given characters may come back with the same probability, but not all of them may come back with the same probability (limitations of reality :,( )
 
@@ -107,21 +91,15 @@ Letters 'И' 'П' 'Л' 'А' are given, whta is the probability off getting a cor
 
     Favorable cases:
 
-    $$
-    m = 2
-    $$
+    $$m = 2$$
 
     Total cases:
 
-    $$
-    n = 4! = 24
-    $$
+    $$n = 4! = 24$$
 
     Probability:
 
-    $$
-    P(A)=\dfrac{2}{24} = \dfrac{1}{12}
-    $$
+    $$P(A)=\dfrac{2}{24} = \dfrac{1}{12}$$
 
 ## Problem 5
 
@@ -131,23 +109,17 @@ There are 8 books on a shelf, what's the probability that 3 specific books are a
 
     Favorable cases:
 
-    $$
-    m = 6\times3!\times5!
-    $$
+    $$m = 6\times3!\times5!$$
 
     Here we have 6 possible positions for this three books to be arranged consecutively, 3! possible arrangements of these three books, and 5! possible arrangements for the other 5 books in the shelf.
 
     Total cases:
 
-    $$
-    n = 8!
-    $$
+    $$n = 8!$$
 
     Probability:
 
-    $$
-    P(A)=\dfrac{3}{28}
-    $$
+    $$P(A)=\dfrac{3}{28}$$
 
  ## Problem 6
 
@@ -159,29 +131,21 @@ There are 5 people in a circular table, What is the probability that 2 specific 
 
     We have 5 possible seats in which the first person can be seated, and next to them (because the table is circular) there are 2 possible seats for the second person to occupy, and the remaining 3 people can be seated in any place.
 
-    $$
-    m = 5\times2\times3!
-    $$
+    $$m = 5\times2\times3!$$
 
     Total cases:
 
-    $$
-    n = 5!
-    $$
+    $$n = 5!$$
 
     Probability:
 
-    $$
-    P(A)=\dfrac{1}{2}
-    $$
+    $$P(A)=\dfrac{1}{2}$$
 
 - ### Solution 2
 
     We assume that one of these two people is already seated, then the second person can occupy 4 places, from which 2 of them are favorable, then
 
-    $$
-    P(A) = \dfrac{2}{4}=\dfrac{1}{2}
-    $$
+    $$P(A) = \dfrac{2}{4}=\dfrac{1}{2}$$
 
 ## Problem 7
 
@@ -191,27 +155,19 @@ On the first floor of a 6-stories building 3 people get on the elevator/lift, Wh
 
     Favorable cases:
 
-    $$
-    m = A_{5}^{3} = 3 \times 4 \times 5 = 60    
-    $$
+    $$m = A_{5}^{3} = 3 \times 4 \times 5 = 60$$
 
     Where $A$ is *Placement formula*, which counts all possible accomodation of $k$ objects from a set of $n$ elements and it is equal to.
 
-    $$
-    A_{n}^{k} = \dfrac{n!}{(n - k)!}
-    $$
+    $$A_{n}^{k} = \dfrac{n!}{(n - k)!}$$
 
     Total cases:
 
-    $$
-    n = 5^3 = 125
-    $$
+    $$n = 5^3 = 125$$
 
     Probability:
 
-    $$
-    P(A)=\dfrac{60}{125} = \dfrac{12}{25}
-    $$
+    $$P(A)=\dfrac{60}{125} = \dfrac{12}{25}$$
 
 ## Problem 8
 
@@ -221,21 +177,15 @@ There are 8 teams, and they are arranged in 2 groups of 4 teams, What is the pro
 
     Favorable cases:
 
-    $$
-    m = {2 \choose 1}{6 \choose 3} = 2 \times 20 = 40
-    $$
+    $$m = {2 \choose 1}{6 \choose 3} = 2 \times 20 = 40$$
 
     Total cases:
 
-    $$
-    n = {8\choose 4} = 70
-    $$
+    $$n = {8\choose 4} = 70$$
 
     Probability:
 
-    $$
-    P(A)=\dfrac{40}{70}
-    $$
+    $$P(A)=\dfrac{40}{70}$$
 
 ## Problem 9
 
@@ -249,9 +199,7 @@ c. 0 : 4
 
 - ### Solution
 
-    $$
-    n = 2^4 = 16
-    $$
+    $$n = 2^4 = 16$$
 
     c.
 
@@ -277,8 +225,7 @@ On a chess board, a white and a black rook are placed, What is the probability t
 
 - ### Solution
 
-    $$
-    n = 64 \times 63
+    $$n = 64 \times 63
     $$
 
     One rook is white and the other black, then the order is important
@@ -287,9 +234,7 @@ On a chess board, a white and a black rook are placed, What is the probability t
 
     We place one rook and consequently, for the second, one row and one column is not available, which leads to a $7\times7$ board.
 
-    $$
-    P(A) = \dfrac{49}{64\times63} = \dfrac{7}{9}
-    $$
+    $$P(A) = \dfrac{49}{64\times63} = \dfrac{7}{9}$$
 
 ## Problem 11
 
@@ -306,9 +251,7 @@ On a chess board, a white and a black rook are placed, What is the probability t
     | **5** | 6 | 7 | 8 | _**9**_ | _**10**_ | _**11**_ |
     | **6** | 7 | 8 | _**9**_ | _**10**_ | _**11**_ | _**12**_ |
 
-    $$
-    n = 6^2 = 36
-    $$
+    $$n = 6^2 = 36$$
 
     Table's size
 
@@ -316,9 +259,7 @@ On a chess board, a white and a black rook are placed, What is the probability t
 
     Look at the italic bold numbers in table
 
-    $$
-    P(A) = \dfrac{5}{18}
-    $$
+    $$P(A) = \dfrac{5}{18}$$
 
 # Geometrical Probability
 
@@ -330,9 +271,7 @@ Some trambai has a wating interval of 15 minutes, What is the probability that i
 
     In this case, the set of possible outcomes is uncountable
 
-    $$
-    P(A) = \dfrac{l(A)}{l(\Omega)} = \dfrac{5}{15} = \dfrac{1}{3}
-    $$
+    $$P(A) = \dfrac{l(A)}{l(\Omega)} = \dfrac{5}{15} = \dfrac{1}{3}$$
 
     Where $l(x)$ represents the measure (Мера) of the given variable.
 
@@ -350,19 +289,15 @@ Two people agreed to meet between 12:00 and 13:00, What is the probability that 
 
     let $x$ be first person's arriving time in minutes after 12:00, and $y$ for second person.
 
-    $$
-    x \in [0, 60] \\
+    $$x \in [0, 60] \\
     y \in [0, 60] \\
-    \Omega = [0, 60]\times[0,60]
-    $$
+    \Omega = [0, 60]\times[0,60]$$
 
     Recall from Math analysis semester 3, that integral returns the measure of what's inside it
 
-    $$
-    \int{(\Omega)} = 60 \times 60 = 3600 \\
+    $$\int{(\Omega)} = 60 \times 60 = 3600 \\
 
-    \int{A} = \int {(\Omega)} - 2\int{B} = 60^2 - 45^2  = (60 + 45)(60-45) = 15\times15\times7 = 1575
-    $$
+    \int{A} = \int {(\Omega)} - 2\int{B} = 60^2 - 45^2  = (60 + 45)(60-45) = 15\times15\times7 = 1575$$
 
     Everything was computed with basic formulas for area.
 
