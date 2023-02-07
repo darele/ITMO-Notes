@@ -29,7 +29,7 @@ There are 4 red pencils and 3 blue pencils in a box, whte is the probability of 
 
     Favorable cases:
     
-    $${ m = {4 \choose 2} {3 \choose 2} = \dfrac{4!}{2!2!} \dfrac{3}{2} = 3*2*3=18 }$$
+    $$ m = {4 \choose 2} {3 \choose 2} = \dfrac{4!}{2!2!} \dfrac{3}{2} = 3\times2\times3=18$$
 
     Total cases:
 
