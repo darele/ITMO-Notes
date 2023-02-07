@@ -57,13 +57,13 @@ There are 2 white, 3 black and 4 red balls in a box, 5 are taken out, what's the
     Favorable cases:
 
     $$
-    m = {3 \choose 2} {4 \choose 2} {2 \choose 1} = 6!\dfrac{4!}{2!2!} = 6*6 = 36
+    m = {3 \choose 2} {4 \choose 2} {2 \choose 1} = 6!\dfrac{4!}{2!2!} = 6\times6 = 36
     $$
 
     Total cases:
 
     $$
-    n = {9 \choose 5} = \dfrac{9*8*7*6}{4!} = 126
+    n = {9 \choose 5} = \dfrac{9\times8\times7\times6}{4!} = 126
     $$
 
     Probability:
@@ -82,13 +82,13 @@ There are 2 white, 3 black and 4 red balls in a box, 5 are taken out, what's the
     Favorable cases:
 
     $$
-    m = {5 \choose 3} {3 \choose 1} {2 \choose 1} = \dfrac{5!}{3!2!}\dfrac{3!}{2!1!} * 2 = 6*6 = 60
+    m = {5 \choose 3} {3 \choose 1} {2 \choose 1} = \dfrac{5!}{3!2!}\dfrac{3!}{2!1!} \times 2 = 6\times6 = 60
     $$
 
     Total cases:
 
     $$
-    n = {10 \choose 5} = \dfrac{10!}{5!5!} = 63*4=252
+    n = {10 \choose 5} = \dfrac{10!}{5!5!} = 63\times4=252
     $$
 
     Probability:
@@ -132,7 +132,7 @@ There are 8 books on a shelf, what's the probability that 3 specific books are a
     Favorable cases:
 
     $$
-    m = 6*3!*5!
+    m = 6\times3!\times5!
     $$
 
     Here we have 6 possible positions for this three books to be arranged consecutively, 3! possible arrangements of these three books, and 5! possible arrangements for the other 5 books in the shelf.
@@ -160,7 +160,7 @@ There are 5 people in a circular table, What is the probability that 2 specific 
     We have 5 possible seats in which the first person can be seated, and next to them (because the table is circular) there are 2 possible seats for the second person to occupy, and the remaining 3 people can be seated in any place.
 
     $$
-    m = 5*2*3!
+    m = 5\times2\times3!
     $$
 
     Total cases:
@@ -192,7 +192,7 @@ On the first floor of a 6-stories building 3 people get on the elevator/lift, Wh
     Favorable cases:
 
     $$
-    m = A_{5}^{3} = 3 * 4 * 5 = 60    
+    m = A_{5}^{3} = 3 \times 4 \times 5 = 60    
     $$
 
     Where $A$ is *Placement formula*, which counts all possible accomodation of $k$ objects from a set of $n$ elements and it is equal to.
@@ -222,7 +222,7 @@ There are 8 teams, and they are arranged in 2 groups of 4 teams, What is the pro
     Favorable cases:
 
     $$
-    m = {2 \choose 1}{6 \choose 3} = 2 * 20 = 40
+    m = {2 \choose 1}{6 \choose 3} = 2 \times 20 = 40
     $$
 
     Total cases:
@@ -261,7 +261,7 @@ c. 0 : 4
 
     b.
 
-    $$m=2*4 = 8, P(A) = \dfrac{8}{16} = \dfrac{1}{2}$$
+    $$m=2\times4 = 8, P(A) = \dfrac{8}{16} = \dfrac{1}{2}$$
 
     1 out of 4 cards can be given to the first player, and there are 2 players.
 
@@ -278,17 +278,17 @@ On a chess board, a white and a black rook are placed, What is the probability t
 - ### Solution
 
     $$
-    n = 64 * 63
+    n = 64 \times 63
     $$
 
     One rook is white and the other black, then the order is important
 
-    $$m = 64*49$$
+    $$m = 64\times49$$
 
-    We place one rook and consequently, for the second, one row and one column is not available, which leads to a $7*7$ board.
+    We place one rook and consequently, for the second, one row and one column is not available, which leads to a $7\times7$ board.
 
     $$
-    P(A) = \dfrac{49}{64*63} = \dfrac{7}{9}
+    P(A) = \dfrac{49}{64\times63} = \dfrac{7}{9}
     $$
 
 ## Problem 11
@@ -359,9 +359,9 @@ Two people agreed to meet between 12:00 and 13:00, What is the probability that 
     Recall from Math analysis semester 3, that integral returns the measure of what's inside it
 
     $$
-    \int{(\Omega)} = 60 * 60 = 3600 \\
+    \int{(\Omega)} = 60 \times 60 = 3600 \\
 
-    \int{A} = \int {(\Omega)} - 2\int{B} = 60^2 - 45^2  = (60 + 45)(60-45) = 15*15*7 = 1575
+    \int{A} = \int {(\Omega)} - 2\int{B} = 60^2 - 45^2  = (60 + 45)(60-45) = 15\times15\times7 = 1575
     $$
 
     Everything was computed with basic formulas for area.
