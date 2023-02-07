@@ -290,9 +290,11 @@ Two people agreed to meet between 12:00 and 13:00, What is the probability that 
     let $x$ be first person's arriving time in minutes after 12:00, and $y$ for second person.
 
     $$
-    x \in [0, 60] \\
-    y \in [0, 60] \\
-    \Omega = [0, 60]\times[0,60]
+    \begin{align*}
+        x &\in [0, 60] \\
+        y &\in [0, 60] \\
+        \Omega &= [0, 60]\times[0,60]
+    \end{align*}
     $$
 
     Recall from Math analysis semester 3, that integral returns the measure of what's inside it
