@@ -289,19 +289,27 @@ Two people agreed to meet between 12:00 and 13:00, What is the probability that 
 
     let $x$ be first person's arriving time in minutes after 12:00, and $y$ for second person.
 
-    $$
-    \begin{aligned}
-    x &\in [0, 60] \\
-    y &\in [0, 60] \\
-    \Omega &= [0, 60]\times[0,60]
-    \end{aligned}
-    $$
+    <!-- To view in VSCode -->
+    <!-- $$\begin{align}
+        x &\in [0, 60] \\
+        y &\in [0, 60] \\
+        \Omega &= [0, 60]\times[0,60]
+    \end{align}$$ -->
+    
+    <!-- To view on Github -->
+
+    $x \in [0, 60]$
+
+    $y \in [0, 60]$
+
+    $\Omega = [0, 60]\times[0,60]$
+
 
     Recall from Math analysis semester 3, that integral returns the measure of what's inside it
 
-    $$\int{(\Omega)} = 60 \times 60 = 3600 \\
+    $$\int{(\Omega)} = 60 \times 60 = 3600$$
 
-    \int{A} = \int {(\Omega)} - 2\int{B} = 60^2 - 45^2  = (60 + 45)(60-45) = 15\times15\times7 = 1575$$
+    $$\int{A} = \int {(\Omega)} - 2\int{B} = 60^2 - 45^2  = (60 + 45)(60-45) = 15\times15\times7 = 1575$$
 
     Everything was computed with basic formulas for area.
 
@@ -315,15 +323,3 @@ Two people agreed to meet between 12:00 and 13:00, What is the probability that 
 3. В коробке 5 красных и 3 синих карандаша. Вынули 5 карандашей, какова вероятность того, что среди них будет не менее 3х красных?
 
 Thanks Andrey
-
-    
-
-
-
-    
-
-
-
-
-
-
