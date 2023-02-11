@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+\usepackage{listings}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{cmll}
+
+\title{Practice 1 10/02/2023}
+\author{Darwin Piche}
+
+\begin{document}
+
+\maketitle
+
+\section{Important points from lecture}
+
+Conjunction and Disjunction are left-associative, i. e.
+
+\begin{align*}
+    A \wedge B \wedge C &\equiv ((A \wedge B) \wedge C) \\
+    A \vee B \vee C &\equiv ((A \vee B) \vee C)
+\end{align*}
+
+Whereas Implication is right-associative.
+
+$$
+    A \rightarrow B \rightarrow C \equiv (A \rightarrow (B \rightarrow C))
+$$
+
+Let's also recall, that Variables of "Semi-Constants" are represented with Latin letters, and Meta-variables are represented with Greek letters.
+
+The main difference is that the former are bound to a specific value, whereas the latter are not.
+
+This means, that if two Meta-variables are equal, then they have the same value, but if this two meta-variables are different, their values are not necessarily different.
+
+\subsection*{Model and expression}
+
+We can define a model, as a set of values for the variables of an expression. If an expression is satisfiable by a model, then we say that the model satisfies the expression, and it is represented in the following way.
+
+$$
+    \llbracket \alpha \rrbracket ^{M}
+$$
+
+Where m is the model, where all values for the different variables in the expression $\alpha$ are defined.
+
+For example:
+
+$$
+    \llbracket P \rightarrow Q \rrbracket ^{P\coloneqq F, Q\coloneqq T}
+$$
+
+\subsection*{Tautology}
+
+A Tautology is an expression, that is always true, regardless of the values of the variables.
+
+It is represented by $\models \alpha$
+
+\subsection*{Some remarks about proofs}
+
+Let $\Gamma$ be a list of expressions, and $\alpha$ be an expression. Then we represent $\Gamma \models \alpha$ if there is a sequence of expressions $\alpha_1, \alpha_2,\dots,\alpha_n$ such that every $\alpha_i$ is:
+
+\begin{itemize}
+    \item A tautology
+    \item Can be obtained from $\Gamma$ by applying the rules of inference rule (Modus Ponens)
+    \item Some expression from the list $\Gamma$
+\end{itemize}
+
+
+\section{Problems}
+
+
+\begin{enumerate}
+
+    \item Будем говорить, что высказывание общезначимо, если выполнено при любой оценке.
+        Высказывание выполнимо, если существует оценка, при которой оно истинно.
+        Высказывание опровержимо, если существует оценка, при которой оно ложно.
+        Высказывание невыполнимо, если нет оценки, при которой оно истинно.
+         Укажите про каждое из следующих высказываний, общезначимо, выполнимо, опровержимо или невыполнимо ли оно:
+    \begin{enumerate}
+    \item $\neg A\vee\neg\neg A$
+    \item $(A\rightarrow\neg B)\vee(B\rightarrow\neg C)\vee(C\rightarrow\neg A)$
+    \item $(((P\rightarrow Q)\rightarrow P)\rightarrow P)$
+    \item $\neg A \with \neg \neg A$
+    \item $\neg (A \with \neg A)$
+    \item $A$
+    \item $A \rightarrow A$
+    \item $A \rightarrow \neg A$
+    \item $(A \rightarrow B) \vee (B \rightarrow A)$
+    \end{enumerate}
+
+    \textbf{Solution.}
+    \begin{enumerate}
+        \item $\neg A\vee\neg\neg A$ - выполнимо и общезначимо
+        \begin{center}
+            \begin{tabular}{| c | c |}
+                \hline
+                A & $\neg A \vee\neg\neg A$ \\
+                \hline
+                T & T \\
+                \hline
+                F & T \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \item $(A\rightarrow\neg B)\vee(B\rightarrow\neg C)\vee(C\rightarrow\neg A)$ - выполнимо и опровержимо
+        \begin{center}
+            \begin{tabular}{| c | c | c | c |}
+                \hline
+                A & B & C & $(A\rightarrow\neg B)\vee(B\rightarrow\neg C)\vee(C\rightarrow\neg A)$ \\
+                \hline
+                T & T & T & F \\
+                \hline
+                T & T & F & T \\
+                \hline
+                T & F & T & T \\
+                \hline
+                $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+                \hline
+            \end{tabular}
+        \end{center}
+        Короче пофик, there is some set of values for which it is satisfiable and some other set of values for which it is not satisfiable, then, it is выполнено и опровержимо.
+        \item $(((P\rightarrow Q)\rightarrow P)\rightarrow P)$ - выполнимо и общезначимо \\
+        Let's take a look at the formula, for it not to be satisfied, $P$ has to be false, and $((P \rightarrow Q) \rightarrow P)$ has to be true. Ok, let's fix the value of $P$ to be false, then if $(P \rightarrow Q)$ is true, then $((P \rightarrow Q) \rightarrow P)$ is false, it does not work, but since we fixed $P=F$, then $(P \rightarrow Q)$ can only be true, then, there is no set of values by which this formula is satisfiable.  
+        \item $\neg A \with \neg \neg A$ - выполнимо и общезначимо \\
+        It's quite obvious
+        \item $\neg (A \with \neg A)$ - выполнимо и общезначимо \\
+        Let's pay attetion to the fact that $(A \with \neg A)$ is always since operator and needs both variables to be true at the same time, but if $A = T \rightarrow \neg A = F$ and $A = F \rightarrow \neg A = T$, so, it is always true.
+        \item $A$ - выполнимо и опровержимо \\
+        With $A = T$ it is true, with $A = F$ it is false.
+        \item $A \rightarrow A$ - выполнимо и общезначимо \\
+        if $A = T$, then $A \rightarrow A$ is true, and if $A = F$, then $A \rightarrow A$ is true.
+        \item $A \rightarrow \neg A$ - выполнимо и опровержимо \\
+        if $A = T$, then $A \rightarrow \neg A$ is false, and if $A = F$, then $A \rightarrow \neg A$ is true.
+        \item $(A \rightarrow B) \vee (B \rightarrow A)$ - выполнимо и общезначимо \\
+        The first implication can only be negated by $A = T$ and $B = F$, but that makes the second one true, something similar happens if we try to negate the second implication
+
+\end{enumerate}
+    
+    \item Простые доказательства. Рассмотрим доказательства в классическом исчислении
+    высказываний, здесь используются следующие десять схем аксиом:
+    
+    \begin{tabular}{ll}
+    (1) & $\phi \rightarrow (\psi \rightarrow \phi)$ \\
+    (2) & $(\phi \rightarrow \psi) \rightarrow (\phi \rightarrow \psi \rightarrow \pi) \rightarrow (\phi \rightarrow \pi)$ \\
+    (3) & $\phi \rightarrow \psi \rightarrow \phi \with \psi$\\
+    (4) & $\phi \with \psi \rightarrow \phi$\\
+    (5) & $\phi \with \psi \rightarrow \psi$\\
+    (6) & $\phi \rightarrow \phi \vee \psi$\\
+    (7) & $\psi \rightarrow \phi \vee \psi$\\
+    (8) & $(\phi \rightarrow \pi) \rightarrow (\psi \rightarrow \pi) \rightarrow (\phi \vee \psi \rightarrow \pi)$\\
+    (9) & $(\phi \rightarrow \psi) \rightarrow (\phi \rightarrow \neg \psi) \rightarrow \neg \phi$\\
+    (10) & $\neg \neg \phi \rightarrow \phi$
+    \end{tabular}
+    
+    Докажите:
+    \begin{enumerate}
+    \item $\vdash A \rightarrow A$
+    \item $\vdash (A \rightarrow A \rightarrow B) \rightarrow (A \rightarrow B)$
+    \item $\vdash \neg (A \with \neg A)$
+    \item $\vdash A \with B \rightarrow B \with A$
+    \item $\vdash A \rightarrow \neg \neg A$
+    \item $A \with \neg A \vdash B$
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
