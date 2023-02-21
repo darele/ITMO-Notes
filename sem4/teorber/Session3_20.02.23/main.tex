@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+\usepackage{listings}
+\usepackage{graphics}
+\usepackage{graphicx}
+
+\title{Theory of probability practice Classes}
+\author{Darwin Eleazar Piche Cruz}
+
+\begin{document}
+
+\maketitle
+
+\section*{Practice 3 Условная Вероятность}
+
+\subsection*{Problem 2}
+
+The first archer hits the target with a probability of $0.9$, the second with a probability of $0.2$, What is the probability that the first archer was called, given that the arrow hit the target
+
+\subsubsection*{Solution}
+
+Let the events:
+
+\begin{itemize}
+    \item $H_1$ - The first archer was called
+    \item $H_2$ - The second archer was called
+    \item $A$ - The arrow hit the target
+\end{itemize}
+
+The two archers can be selected with the same probability, then
+
+\begin{align*}
+    P(H_1) &= \frac{1}{2} \\
+    P(H_2) &= \frac{1}{2} \\
+    P(A | H_1) &= 0.9 \\
+    P(A | H_2) &= 0.2
+\end{align*}
+
+Last two results are given in the problem statement.
+
+\begin{align*}
+    P(H_1 | A) &= \dfrac{P(H_1)\cdot P(A|H1)}{P(H_1) \cdot P(A | H_1) + P(H_2) \cdot P(A | H2)} \\
+    &= \dfrac{0.5 \cdot 0.9}{0.5 \cdot 0.9 + 0.5 \cdot 0.3} \\
+    &= \dfrac{0.9}{1.2} \\
+    &= \dfrac{3}{4} = 0.75 \\
+\end{align*}
+
+\textbf{Important observation: } to use the formula of conditional probability, we first computede the probability of the arrow hitting the target given that the first or second archer was selected, and only then we could compute the probability for the first archer being selected given that the arrow hit the target.
+
+\subsection*{Problem 3}
+
+There are boxes with black and white balls.
+
+\begin{itemize}
+    \item On the first one: 4 white and 1 black
+    \item On the second one: 2 white and 3 black
+    \item On the third one: 1 white and 4 black
+\end{itemize}
+
+2 white balls where taken out of one of the boxes, what it the probability that these two balls were taken from the second box.
+
+\subsubsection{Solution}
+
+Let the events
+
+\begin{itemize}
+    \item $H_1$ - The first box was selected
+    \item $H_2$ - The second box was selected
+    \item $H_3$ - The third box was s
+    selected
+    \item $A$ - 2 white balls where taken out
+\end{itemize}
+
+\begin{align*}
+    P(H_1) = P(H_2) = P(H_3) &= \dfrac{1}{3} \\
+    P(A | H_1) &= \dfrac{4}{5} \cdot \dfrac{3}{4} = \dfrac{3}{5}
+    P(A | H_2) &= \dfrac{2}{5} \cdot \dfrac{1}{4} = \dfrac{1}{10}
+    P(A | H_3) &= 0
+\end{align*}
+
+\textbf{Note:} No two white balls can be taken out of the third box, since it has only 1 white ball.
+
+\begin{align*}
+    P(H_2 | A) &= \dfrac{P(H_2) P(A | H_2)}{P(H_1)P(A | H_1) + P(H_2)P(A | H_2) + P(H_3)P(A|H_3)} \\
+    &= \dfrac{\dfrac{1}{3}\dfrac{1}{10}}{\dfrac{1}{3}\dfrac{1}{10} + \dfrac{1}{3} \dfrac{1}{10}} \\
+    &= \dfrac{1}{6 + 1} = \dfrac{1}{7}
+\end{align*}
+
+\subsection*{Problem 4}
+
+On a chess board, a king and a knight are placed, what is the probability that the king is check by the knight?
+
+\subsubsection*{Solution}
+
+The idea is simple, we first place the king, and for its position in the chess board, we compute the number of cells in which a knight can be placed to have check, the analysis is sinthetized in the following table.
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        1 & 2 & 3 & 3 & 3 & 3 & 2 & 1 \\ \hline
+        2 & 3 & 4 & 4 & 4 & 4 & 3 & 2 \\ \hline
+        3 & 4 & 5 & 5 & 5 & 5 & 4 & 3 \\ \hline
+        3 & 4 & 5 & 5 & 5 & 5 & 4 & 3 \\ \hline
+        3 & 4 & 5 & 5 & 5 & 5 & 4 & 3 \\ \hline
+        3 & 4 & 5 & 5 & 5 & 5 & 4 & 3 \\ \hline
+        2 & 3 & 4 & 4 & 4 & 4 & 3 & 2 \\ \hline
+        1 & 2 & 3 & 3 & 3 & 3 & 2 & 1 \\ \hline
+    \end{tabular}
+\end{center}
+
+\begin{align*}
+    P(H_1) = \dfrac{4}{64} & \rightarrow P(A | H_1) = \dfrac{2}{63} \\
+    P(H_2) = \dfrac{8}{64} & \rightarrow P(A | H_2) = \dfrac{3}{63} \\
+    P(H_3) = \dfrac{20}{64} & \rightarrow P(A | H_3) = \dfrac{3}{63} \\
+    P(H_4) = \dfrac{16}{64} & \rightarrow P(A | H_4) = \dfrac{6}{63} \\
+    P(H_5) = \dfrac{16}{64} & \rightarrow P(A | H_5) = \dfrac{8}{63} \\
+\end{align*}
+
+Where $H_i$ means "Place the king on a cell attacked by $i$ knights"
+
+Then let's just apply multiplication and addition principle.
+
+\begin{align*}
+    P(A) &= \dfrac{4}{64}\dfrac{2}{63} + \dfrac{8}{64}\dfrac{3}{63} + \dfrac{20}{64}\dfrac{4}{63} + \dfrac{16}{64}\dfrac{6}{63} + \dfrac{16}{64}\dfrac{8}{63} \\
+    &= \dfrac{1 + 3 + 10 + 12 + 16}{8 \cdot 63} \\
+    &= \dfrac{3}{4 \cdot 9} = \dfrac{1}{12}
+\end{align*}
+
+
+
+\end{document}
